@@ -16,13 +16,13 @@ class Product(Base):
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
-            print(f"PRODUCT - Se acaba de crear un nuevo producto.")
+            print(f"PRODUCT - Se acaba de crear uno o varios productos.")
         elif msm == "update":
-            print(f"PRODUCT - Se acaba de actualizar un producto con el 'product_id' = {data['product_id']}")
+            print(f"PRODUCT - Se acaba de actualizar uno o varios productos")
         elif msm == "delete":
-            print(f"PRODUCT - Se acaba de eliminar un producto con el 'product_id' = {data['product_id']}")
+            print(f"PRODUCT - Se acaba de eliminar uno o varios productos")
         elif msm == "erro":
-            print(f"PRODUCT - Error a la hora de crear un nuevo producto, puede ser que el link del producto se este repietiendo o que el el Product_id ya existe")
+            print(f"PRODUCT - Error a la hora de crear uno o varios productos, puede ser que el link del producto se este repietiendo o que el el Product_id ya existe")
     
     
     product_id = Column("product_id", Integer, primary_key=True, unique=True) # id del producto
@@ -54,13 +54,13 @@ class Type_product(Base):
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
-            print(f"TYPE_PRODUCT - Se acaba de crear un nuevo tipo de producto.")
+            print(f"TYPE_PRODUCT - Se acaba de crear uno o varios tipos de producto.")
         elif msm == "update":
-            print(f"TYPE_PRODUCT - Se acaba de actualizar un tipo de producto con el 'product_type_id' = {data['product_type_id']}")
+            print(f"TYPE_PRODUCT - Se acaba de actualizar uno o varios tipos de producto")
         elif msm == "delete":
-            print(f"TYPE_PRODUCT - Se acaba de eliminar un tipo de producto con el 'product_type_id' = {data['product_type_id']}")
+            print(f"TYPE_PRODUCT - Se acaba de eliminaruno o varios tipos de producto")
         elif msm == "erro":
-            print(f"TYPE_PRODUCT - Error a la hora de crear un nuevo tipo de producto, puede ser que el tipo de producto se este repietiendo o que el el product_type_id ya existe")
+            print(f"TYPE_PRODUCT - Error a la hora de crear uno o varios tipos de producto, puede ser que el tipo de producto se este repietiendo o que el el product_type_id ya existe")
     
     
     product_type_id = Column("product_type_id", Integer(), primary_key=True, unique=True) # id tipo de producto
@@ -77,13 +77,13 @@ class Currency(Base):
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
-            print(f"CURRENCY - Se acaba de crear un nuevo tipo de diviza.")
+            print(f"CURRENCY - Se acaba de crear una o varias divizas.")
         elif msm == "update":
-            print(f"CURRENCY - Se acaba de actualizar un tipo de diviza con el 'currency_id' = {data['currency_id']}")
+            print(f"CURRENCY - Se acaba de actualizar una o varias divizas")
         elif msm == "delete":
-            print(f"CURRENCY - Se acaba de eliminar un tipo de diviza con el 'currency_id' = {data['currency_id']}")
+            print(f"CURRENCY - Se acaba de eliminar una o varias divizas")
         elif msm == "erro":
-            print(f"CURRENCY - Error a la hora de crear un nuevo tipo de diviza, puede ser que el tipo de diviza se este repietiendo o que el el currency_id ya existe")
+            print(f"CURRENCY - Error a la hora de crear una o varias divizas, puede ser que el tipo de diviza se este repietiendo o que el el currency_id ya existe")
             
             
     
@@ -102,13 +102,13 @@ class Contry(Base):
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
-            print(f"CONTRY - Se acaba de crear un nuevo pais.")
+            print(f"CONTRY - Se acaba de crear uno o varios paises.")
         elif msm == "update":
-            print(f"CONTRY - Se acaba de actualizar un pais con el 'contry_id' = {data['contry_id']}")
+            print(f"CONTRY - Se acaba de actualizar uno o varios paises")
         elif msm == "delete":
-            print(f"CONTRY - Se acaba de eliminar un pais con el 'contry_id' = {data['contry_id']}")
+            print(f"CONTRY - Se acaba de eliminar uno o varios paises")
         elif msm == "erro":
-            print(f"CONTRY - Error a la hora de crear un nuevo pais, puede ser que el pais se este repietiendo o que el el contry_id ya existe")
+            print(f"CONTRY - Error a la hora de crear uno o varios paises, puede ser que el pais se este repietiendo o que el el contry_id ya existe")
             
     
     contry_id = Column("contry_id", Integer(), primary_key=True, unique=True) # id del pais 
@@ -125,13 +125,13 @@ class Store(Base):
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
-            print(f"STORE - Se acaba de crear una nueva tienda.")
+            print(f"STORE - Se acaba de crear una o varias tiendas.")
         elif msm == "update":
-            print(f"STORE - Se acaba de actualizar una tienda con el 'store_id' = {data['store_id']}")
+            print(f"STORE - Se acaba de actualizar una o varias tiendas")
         elif msm == "delete":
-            print(f"STORE - Se acaba de eliminar una tienda con el 'store_id' = {data['store_id']}")
+            print(f"STORE - Se acaba de eliminaruna o varias tiendas")
         elif msm == "erro":
-            print(f"STORE - Error a la hora de crear una nueva tienda, puede ser que la tienda se este repietiendo o que el el store_id ya existe")
+            print(f"STORE - Error a la hora de crear una o varias tiendas, puede ser que la tienda se este repietiendo o que el el store_id ya existe")
     
     store_id = Column("store_id", Integer(), primary_key=True, unique=True) # id de la tienda
     contry_id = Column("contry_id", Integer(), ForeignKey("contries.contry_id")) # id del id del pais al que pertenece
@@ -159,13 +159,13 @@ class User(Base):
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
-            print(f"USER - Se acaba de crear un nuevo usuario.")
+            print(f"USER - Se acaba de crear uno o varios usuario.")
         elif msm == "update":
-            print(f"USER - Se acaba de actualizar un usuario con el 'user_id' = {data['user_id']}")
+            print(f"USER - Se acaba de actualizar uno o varios usuarios")
         elif msm == "delete":
-            print(f"USER - Se acaba de eliminar un usuario con el 'user_id' = {data['user_id']}")
+            print(f"USER - Se acaba de eliminar uno o varios usuarios")
         elif msm == "erro":
-            print(f"USER - Error a la hora de crear un nuevo usuario, puede ser que el usuario se este repietiendo o que el el user_id ya existe")
+            print(f"USER - Error a la hora de crear uno o varios usuarios, puede ser que el usuario se este repietiendo o que el el user_id ya existe")
             
             
     
@@ -185,11 +185,11 @@ class Rol(Base):
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
-            print(f"USER - Se acaba de crear un nuevo rol.")
+            print(f"USER - Se acaba de crear un o varios roles")
         elif msm == "update":
-            print(f"USER - Se acaba de actualizar un rol con el 'rol_id' = {data['rol_id']}")
+            print(f"USER - Se acaba de actualizar uno o varios roles")
         elif msm == "delete":
-            print(f"USER - Se acaba de eliminar un rol con el 'rol_id' = {data['rol_id']}")
+            print(f"USER - Se acaba de eliminar uno o varios roles")
         elif msm == "erro":
             print(f"USER - Error a la hora de crear un nuevo rol, puede ser que el rol se este repietiendo o que el el rol_id ya existe")
     
