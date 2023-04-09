@@ -11,7 +11,7 @@ class Product(Base):
         "product_id", "store_id", "product_type_id", "currency_id", "link", "title", "description", "product_brand", "img_urls", "img_direction_folder", "price", "discount_price", "has_discount", "characteristics"
         ]
     __foreignKey__ = ["store_id", "product_type_id", "currency_id",]
-    
+    __unique__ = "link"
     
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         
@@ -49,6 +49,7 @@ class Type_product(Base):
     __tablename__ = "type_products"
     __column__ = ["product_type_id", "product_type_name"]
     __foreignKey__ = False
+    __unique__ = "product_type_name"
     
     
     def __str__(data: dict = None, msm: str = "create" ) -> str:
@@ -72,6 +73,7 @@ class Currency(Base):
     __tablename__ = "currencies"
     __column__ = ["currency_id", "currency_name", "symbol"]
     __foreignKey__ = False
+    __unique__ = "currency_name"
     
     
     def __str__(data: dict = None, msm: str = "create" ) -> str:
@@ -97,6 +99,7 @@ class Contry(Base):
     __tablename__ = "contries"
     __column__ = ["contry_id", "contry_name"]
     __foreignKey__ = False
+    __unique__ = "contry_name"
     
     
     def __str__(data: dict = None, msm: str = "create" ) -> str:
@@ -120,6 +123,7 @@ class Store(Base):
     __tablename__= "stores"
     __column__ = ['store_id', "contry_id", "store_name", "link_store"]
     __foreignKey__ = ["contry_id"]
+    __unique__ = "store_name"
     
     
     def __str__(data: dict = None, msm: str = "create" ) -> str:
@@ -154,6 +158,7 @@ class User(Base):
     __tablename__ = "users"
     __column__ = ["user_id", "rol_id", "user_name", "first_name"]
     __foreignKey__ = ["rol_id"]
+    __unique__ = "user_name"
     
     
     def __str__(data: dict = None, msm: str = "create" ) -> str:
@@ -181,6 +186,7 @@ class Rol(Base):
     __tablename__ = "roles"
     __column__ = ["rol_id","rol_type"]
     __foreignKey__ = False
+    __unique__ = "rol_type"
     
     def __str__(data: dict = None, msm: str = "create" ) -> str:
         

@@ -2,6 +2,8 @@ from models import Store, Contry, Currency, Rol, Product, Type_product, User, Ma
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+
+
 class Connection():
     
     url = f"sqlite:///matcher_db.sqlite"
@@ -9,11 +11,14 @@ class Connection():
     Session  = sessionmaker(bind= engine)
     session =  Session()
 
+
+
 def create_tables()->None:
     
     Connection = Connection()
     with Connection.engine.connect() as con:
         Base.metadata.create_all(Connection.engine, checkfirst=True)
+
 
 
 def check_keys(model: str = None, keys: list | str = None, show_msm: bool = True):
