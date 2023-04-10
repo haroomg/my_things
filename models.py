@@ -13,7 +13,7 @@ class Product(Base):
     __foreignKey__ = ["store_id", "product_type_id", "currency_id",]
     __unique__ = "link"
     
-    def __str__(data: dict = None, msm: str = "create" ) -> str:
+    def __msm__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
             print(f"PRODUCT - Se acaba de crear uno o varios productos.")
@@ -25,12 +25,12 @@ class Product(Base):
             print(f"PRODUCT - Error a la hora de crear uno o varios productos, puede ser que el link del producto se este repietiendo o que el el Product_id ya existe")
     
     
-    product_id = Column("product_id", Integer, primary_key=True, unique=True) # id del producto
+    product_id = Column("product_id", Integer(), primary_key=True) # id del producto
     store_id = Column("store_id", Integer(), ForeignKey("stores.store_id")) # id de la tienda y su link
     product_type_id = Column("product_type_id", String(256), ForeignKey("type_products.product_type_id")) # id del tipo de producto al que corresponde
     currency_id = Column("currency_id", ForeignKey("currencies.currency_id"))
     
-    link = Column("link", Text(), unique=True) # link del producto
+    link = Column("link", Text()) # link del producto
     title = Column("title", Text()) # titulo del producto, con este es que se va a realizar la busqueda
     description = Column("description", Text()) #descripcion del producto
     product_brand = Column("product_brand", String(256)) # nombre de la marca del producto 
@@ -52,7 +52,7 @@ class Type_product(Base):
     __unique__ = "product_type_name"
     
     
-    def __str__(data: dict = None, msm: str = "create" ) -> str:
+    def __msm__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
             print(f"TYPE_PRODUCT - Se acaba de crear uno o varios tipos de producto.")
@@ -76,7 +76,7 @@ class Currency(Base):
     __unique__ = "currency_name"
     
     
-    def __str__(data: dict = None, msm: str = "create" ) -> str:
+    def __msm__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
             print(f"CURRENCY - Se acaba de crear una o varias divizas.")
@@ -102,7 +102,7 @@ class Contry(Base):
     __unique__ = "contry_name"
     
     
-    def __str__(data: dict = None, msm: str = "create" ) -> str:
+    def __msm__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
             print(f"CONTRY - Se acaba de crear uno o varios paises.")
@@ -121,12 +121,12 @@ class Contry(Base):
 
 class Store(Base):
     __tablename__= "stores"
-    __column__ = ['store_id', "contry_id", "store_name", "link_store"]
+    __column__ = ['store_id', "contry_id", "store_name", "link_store", "load_collector_num", "last_modification_day"]
     __foreignKey__ = ["contry_id"]
     __unique__ = "store_name"
     
     
-    def __str__(data: dict = None, msm: str = "create" ) -> str:
+    def __msm__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
             print(f"STORE - Se acaba de crear una o varias tiendas.")
@@ -141,6 +141,8 @@ class Store(Base):
     contry_id = Column("contry_id", Integer(), ForeignKey("contries.contry_id")) # id del id del pais al que pertenece
     store_name = Column("store_name", String(100),  unique=True) # nombre de la tienda
     link_store = Column("link_store", Text(), unique=True) # link de la tienda
+    load_collector_num = Column("load_collector_num", Integer) # es un contador de cuantas veces se han cargado colectores en esa tienda
+    last_modification_day = Column("last modification day", String(20), default= 0) # guardamos la fecha en la que se esta modificado
 
 
 
@@ -161,7 +163,7 @@ class User(Base):
     __unique__ = "user_name"
     
     
-    def __str__(data: dict = None, msm: str = "create" ) -> str:
+    def __msm__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
             print(f"USER - Se acaba de crear uno o varios usuario.")
@@ -188,7 +190,7 @@ class Rol(Base):
     __foreignKey__ = False
     __unique__ = "rol_type"
     
-    def __str__(data: dict = None, msm: str = "create" ) -> str:
+    def __msm__(data: dict = None, msm: str = "create" ) -> str:
         
         if msm == "create":
             print(f"USER - Se acaba de crear un o varios roles")

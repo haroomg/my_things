@@ -15,7 +15,7 @@ class Connection():
 
 def create_tables()->None:
     
-    Connection = Connection()
+    connection = Connection()
     with Connection.engine.connect() as con:
         Base.metadata.create_all(Connection.engine, checkfirst=True)
 
